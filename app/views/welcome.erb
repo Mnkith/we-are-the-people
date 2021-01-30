@@ -8,26 +8,14 @@
 
     <h2>Sinatra Template Default Page</h2>
     <div class="grid-container">
-      <div class="grid-item">Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-        as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-        your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-      </div>
-      <div class="grid-item">Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-        as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-        your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-      </div>
-      <div class="grid-item">Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-        as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-        your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-      </div>
-      <div class="grid-item">Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-        as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-        your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-      </div>
-      <div class="grid-item">Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-        as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-        your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
-      </div>
+      <% Cause.all.each do |cause| %>
+        <div class="grid-item">
+          <img src="/public/images/im1.gif" alt="Smiley face" width="100" height="100" style="float:left">
+          <h3><%= cause.title %></h3>
+
+        </div>
+      <% end %>
+      
     </div>
     
     
