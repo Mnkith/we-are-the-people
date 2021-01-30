@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210130034248) do
+ActiveRecord::Schema.define(version: 20210130233540) do
 
   create_table "causes", force: :cascade do |t|
-    t.string   "title",       null: false
+    t.string   "title",                   null: false
     t.text     "description"
     t.string   "image_link"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "gaol",        default: 0
+    t.integer  "current",     default: 0
   end
 
 end

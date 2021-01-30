@@ -2,11 +2,13 @@
 
   .grid-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto ;
     background-color: #94c8f1;
     padding: 10px;
   }
   .grid-item {
+    /* -moz-box-shadow: 0 0 10px rgba(0,0,0,.3); */
+    /* -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3); */
     background-color: rgba(223, 64, 64, 0.2);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
