@@ -11,7 +11,7 @@ class AdvocatesController < ApplicationController
   end
 
   post "/advocates/registration" do
-    session[:id] ? erb :"/advocateserb/logout" : erb :"/advocates/registration"
+    session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
   end
 
   # POST: /advocates
