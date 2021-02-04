@@ -15,7 +15,7 @@ class CausesController < ApplicationController
 
   get "/causes/:slug" do
     @cause = Cause.find_by_slug params[:slug]
-    # binding.pry
+    binding.pry
     erb :"/causes/show"
   end
   
