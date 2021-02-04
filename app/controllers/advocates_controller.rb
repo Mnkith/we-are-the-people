@@ -10,6 +10,10 @@ class AdvocatesController < ApplicationController
     erb :"/advocates/new.html"
   end
 
+  post "/advocates/registration" do
+    erb :"/advocates/registration"
+  end
+
   # POST: /advocates
   post "/advocates" do
     redirect "/advocates"
