@@ -14,7 +14,8 @@
 
     <form action="/advocates" method="post">
       <div class="form-group">
-        <label for="name">Name</label><br>
+        <label for="name">Name</label><%= @errors&[0] %><br>
+        <%binding.pry %>
         <input type="text" name="advocate[name]" id="name" class="form-control" placeholder="User Name" aria-describedby="helpId"><br>
         <label for="email">E-mail</label><br>
         <input type="text" name="advocate[email]" id="email" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>

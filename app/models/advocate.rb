@@ -3,9 +3,8 @@ class Advocate < ActiveRecord::Base
   include Slug::InstanceMethods
   # include ActiveRecord::Validations
 
+  validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :passowrd, presence: true
-  validates :passowrd_confirmation, presence: true
   validates :passowrd, confirmation: true
   validates :passowrd_confirmation, presence: true
 

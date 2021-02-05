@@ -16,10 +16,16 @@ class AdvocatesController < ApplicationController
 
   # POST: /advocates
   post "/advocates" do
-    user = Advocate.create params[:advocate]
+    @user = Advocate.create params[:advocate]
     # user.save
-    binding.pry
-    redirect "/advocates"
+    if user.valid?
+      redirect "/advocates"
+    else
+      @errors = @user.errors.full_messages
+      # binding.pry
+      redirect to "/advocates/new"
+    end
+
   end
 
   # GET: /advocates/5
