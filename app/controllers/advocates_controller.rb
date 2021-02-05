@@ -28,11 +28,16 @@ class AdvocatesController < ApplicationController
   end
   
   get "/advocates/registration" do
-    session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
+    if session[:id]
+      session.clear
+      erb :"/advocates/logout" 
+    else
+      erb :"/advocates/registration"
+    end
   end
   # GET: /advocates/5
   get "/advocates/:slug" do
-    @advocate = Advocate.find params[slug]
+    @advocate = Advocate.find_by_slug params[:slug]
     # binding.pry
     erb :"/advocates/show.html"
   end
