@@ -5,5 +5,9 @@
   <h3>Welcom <%= @advocate.name %></h3>
 <% end %>
 
-<h4>Ready To Make Some Donations, Visit <a href="/home" class="badge badge-primary">Home</a> Or </h4>
-<H6><a href="/" class="badge badge-primary">Edit</a> Your Account.</h6>
+<h4>Ready To Make Some Donations, Visit <a href="../" class="badge badge-primary">Home</a> Or </h4>
+<%# <% binding.pry %> %>
+<H6> <form action="/advocates/<%= @advocate.slug %>/edit" method='get'>
+      <button type="submit" class="btn btn-primary">Edit</button>
+    <%# <input type='submit' value='More Details'> %>
+  <form> Your Account.</h6>

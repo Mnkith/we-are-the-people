@@ -35,10 +35,10 @@ class AdvocatesController < ApplicationController
   end
   
   post '/login' do
-    @user = User.find_by(email: params[:email], password: params[:password])
+    @user = Advocate.find_by email: params[:email], password: params[:password]
     if @user
-      session[:user_id] = @user.id
-      erb :"/advocates/registration"
+      session[:id] = @user.id
+      redirect to "/advocates/#{ @user.slug }"
     end
     flash[:message] = "Account Not Found, Please Make Sure You Type In Your Credentials Correctly"
     erb :"/advocates/registration"
@@ -54,20 +54,27 @@ class AdvocatesController < ApplicationController
     end
   end
   # GET: /advocates/5
-  get "/advocates/:slug" do
-    @advocate = Advocate.find_by_slug params[:slug]
-    # binding.pry
-    erb :"/advocates/show.html"
-  end
+  
 
   # GET: /advocates/5/edit
-  get "/advocates/:id/edit" do
+  get "/advocates/:slug/edit" do
+    @advocate = Advocate.find_by_slug params[:slug]
     erb :"/advocates/edit.html"
   end
 
   # PATCH: /advocates/5
-  patch "/advocates/:id" do
-    redirect "/advocates/:id"
+  patch "/advocates/:slug" do
+    redirect "/advocates/:slug"
+  end
+
+  get "/advocates/:slug" do
+    @advocate = Advocate.find_by_slug params[:slug]
+    if @advocate && session[:id]
+      erb :"/advocates/show.html"
+    else
+      flash[:message] = "Please Sign In To See Your Account"
+    end
+    # binding.pry
   end
 
   # DELETE: /advocates/5/delete

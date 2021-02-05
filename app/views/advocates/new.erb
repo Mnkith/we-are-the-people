@@ -8,10 +8,10 @@
         <label for="email">E-mail <span style="color:red;"><%= @user&.errors&.[](:email)&.[](0) %></span></label><br>
         <input type="text" name="advocate[email]" id="email" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
-        <label for="passowrd">Password  <span style="color:red;"><%= @user&.errors&.[](:passowrd)&.[](0) %></span></label><br>
-        <input type="text" name="advocate[passowrd]" id="passowrd" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
-        <label for="passowrd_confirmation">Passowrd Confirmation <span style="color:red;"><%= @user&.errors&.[](:passowrd_confirmation)&.[](0) %></span></label><br>
-        <input type="text" name="advocate[passowrd_confirmation]" id="passowrd_confirmation" class="form-control" placeholder="Re-Enter Password" aria-describedby="helpId"><br>
+        <label for="password">Password  <span style="color:red;"><%= @user&.errors&.[](:password)&.[](0) %></span></label><br>
+        <input type="text" name="advocate[password]" id="password" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
+        <label for="password_confirmation">Password Confirmation <span style="color:red;"><%= @user&.errors&.[](:password_confirmation)&.[](0) %></span></label><br>
+        <input type="text" name="advocate[password_confirmation]" id="password_confirmation" class="form-control" placeholder="Re-Enter Password" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
         <button type="submit" class="btn btn-primary">Create Account</button> Or
         <a href="/advocates/registration" class="badge badge-primary">Sign In</a> If You Already Have An Acount.

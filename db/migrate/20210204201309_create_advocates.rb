@@ -3,7 +3,7 @@ class CreateAdvocates < ActiveRecord::Migration[5.2]
     create_table :advocates do |t|
       t.string :name
       t.string :email
-      t.string :passowrd
+      t.string :password
       t.timestamps null: false
     end
   end

@@ -13,7 +13,8 @@ class ApplicationController < Sinatra::Base
   get "/" do
     # p self
     # binding.pry
-    @session = session
+    # @session = session
+
     erb :home
   end
 
