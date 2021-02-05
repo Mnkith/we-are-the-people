@@ -14,25 +14,25 @@ class AdvocatesController < ApplicationController
     session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
   end
   
-  get "/advocates/registration" do
-    session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
-  end
   # POST: /advocates
   post "/advocates" do
     @user = Advocate.create params[:advocate]
     # user.save
     if @user.valid?
-      erb :"/advocates"
+      session[:id] = @user.id
+      redirect to "/advocates/#{ @user.slug }"
     else
-      @errors = @user.errors.full_messages
-      # binding.pry
       erb :"/advocates/new"
     end
-
   end
-
+  
+  get "/advocates/registration" do
+    session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
+  end
   # GET: /advocates/5
-  get "/advocates/:id" do
+  get "/advocates/:slug" do
+    @advocate = Advocate.find_by_slug params[:slug]
+    # binding.pry
     erb :"/advocates/show.html"
   end
 

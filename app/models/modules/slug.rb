@@ -1,7 +1,7 @@
 module Slug 
   module InstanceMethods
     def slug 
-      title.downcase.gsub(" ","-")
+      name.downcase.gsub(" ","-")
     end
   end
 
