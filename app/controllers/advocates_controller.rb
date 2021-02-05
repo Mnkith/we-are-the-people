@@ -13,17 +13,20 @@ class AdvocatesController < ApplicationController
   post "/advocates/registration" do
     session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
   end
-
+  
+  get "/advocates/registration" do
+    session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
+  end
   # POST: /advocates
   post "/advocates" do
     @user = Advocate.create params[:advocate]
     # user.save
     if @user.valid?
-      redirect "/advocates"
+      erb :"/advocates"
     else
       @errors = @user.errors.full_messages
       # binding.pry
-      redirect to :"/advocates/new"
+      erb :"/advocates/new"
     end
 
   end

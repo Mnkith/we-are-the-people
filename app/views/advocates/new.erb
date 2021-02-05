@@ -1,32 +1,20 @@
 <h1>Create New Account.</h1>
 
-
-
-    <%# <div class="form-group">
-      <label for=""></label>
-      <input type="password" class="form-control" name="" id="" placeholder="E-mail">
-    </div>
-
-    <div class="form-group">
-      <label for=""></label>
-      <input type="password" class="form-control" name="" id="" placeholder="Password">
-    </div> %>
-
     <form action="/advocates" method="post">
       <div class="form-group">
-        <% binding.pry %>
-        <label for="name">Name <%= @errors&.[](0) %></label><br>
+        <%# <% binding.pry %> 
+        <label for="name">Name <span style="color:red;"><%= @user&.errors&.[](:name)&.[](0) %></span></label><br>
         <input type="text" name="advocate[name]" id="name" class="form-control" placeholder="User Name" aria-describedby="helpId"><br>
-        <label for="email">E-mail</label><br>
+        <label for="email">E-mail <span style="color:red;"><%= @user&.errors&.[](:email)&.[](0) %></span></label><br>
         <input type="text" name="advocate[email]" id="email" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
-        <label for="passowrd">Password</label><br>
+        <label for="passowrd">Password  <span style="color:red;"><%= @user&.errors&.[](:passowrd)&.[](0) %></span></label><br>
         <input type="text" name="advocate[passowrd]" id="passowrd" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
-        <label for="passowrd_confirmation">Confirm Password</label><br>
+        <label for="passowrd_confirmation">Passowrd Confirmation <span style="color:red;"><%= @user&.errors&.[](:passowrd_confirmation)&.[](0) %></span></label><br>
         <input type="text" name="advocate[passowrd_confirmation]" id="passowrd_confirmation" class="form-control" placeholder="Re-Enter Password" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
         <button type="submit" class="btn btn-primary">Create Account</button> Or
-        <a href="/advocates/new" class="badge badge-primary">Sign In</a> If You Already Have An Acount.
+        <a href="/advocates/registration" class="badge badge-primary">Sign In</a> If You Already Have An Acount.
       </div>
     </form>
     <%# <span class="badge badge-pill badge-primary"></span> %>

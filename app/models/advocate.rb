@@ -5,7 +5,7 @@ class Advocate < ActiveRecord::Base
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :passowrd, confirmation: true
+  validates :passowrd, presence: true, confirmation: true
   validates :passowrd_confirmation, presence: true
 
   has_many :donations
