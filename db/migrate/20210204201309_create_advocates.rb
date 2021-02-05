@@ -1,4 +1,4 @@
-class CreateAdvocates < ActiveRecord::Migration
+class CreateAdvocates < ActiveRecord::Migration[5.2]
   def change
     create_table :advocates do |t|
       t.string :name
