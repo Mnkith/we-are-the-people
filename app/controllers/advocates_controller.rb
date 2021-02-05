@@ -7,7 +7,7 @@ class AdvocatesController < ApplicationController
 
   # GET: /advocates/new
   get "/advocates/new" do
-    erb :"/advocates/new.html"
+    erb :"/advocates/new"
   end
 
   post "/advocates/registration" do
@@ -18,12 +18,12 @@ class AdvocatesController < ApplicationController
   post "/advocates" do
     @user = Advocate.create params[:advocate]
     # user.save
-    if user.valid?
+    if @user.valid?
       redirect "/advocates"
     else
       @errors = @user.errors.full_messages
       # binding.pry
-      redirect to "/advocates/new"
+      redirect to :"/advocates/new"
     end
 
   end
