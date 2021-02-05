@@ -1,5 +1,5 @@
 class AdvocatesController < ApplicationController
-
+  use Rack::Flash
   # GET: /advocates
   get "/advocates" do
     erb :"/advocates/index.html"
@@ -20,6 +20,7 @@ class AdvocatesController < ApplicationController
     # user.save
     if @user.valid?
       session[:id] = @user.id
+      flash[:message] = "Congratulations #{@user.name}, Your Account Has Been Created SuccessFully."
       redirect to "/advocates/#{ @user.slug }"
     else
       erb :"/advocates/new"
@@ -31,7 +32,7 @@ class AdvocatesController < ApplicationController
   end
   # GET: /advocates/5
   get "/advocates/:slug" do
-    @advocate = Advocate.find_by_slug params[:slug]
+    @advocate = Advocate.find params[slug]
     # binding.pry
     erb :"/advocates/show.html"
   end

@@ -1,1 +1,9 @@
-<h1>@advocate.name.</h1>
+
+<% if flash.has?(:message) %>
+  <h2><%= flash[:message] %></h2>
+<% else %>
+  <h3>Welcom <%= @advocate.name %></h3>
+<% end %>
+
+<h4>Ready To Make Some Donations, Visit <a href="/home" class="badge badge-primary">Home</a> Or </h4>
+<H6><a href="/home" class="badge badge-primary">Rdit</a> Your Account.</h6>
