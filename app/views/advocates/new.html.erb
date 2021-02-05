@@ -12,15 +12,15 @@
       <input type="password" class="form-control" name="" id="" placeholder="Password">
     </div> %>
 
-    <form >
+    <form action="/advocates" method="post">
       <div class="form-group">
         <label for="">E-mail</label><br>
         <input type="text" name="" id="" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
         <label for="passowrd">Password</label><br>
-        <input type="text" name="" id="passowrd" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
+        <input type="text" name="advocate[passowrd]" id="passowrd" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
         <label for="passowrd_confirmation">Confirm Password</label><br>
-        <input type="text" name="" id="passowrd_confirmation" class="form-control" placeholder="Re-enter Password" aria-describedby="helpId"><br>
+        <input type="text" name="advocate[passowrd_confirmation]" id="passowrd_confirmation" class="form-control" placeholder="Re-enter Password" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
         <button type="submit" class="btn btn-primary">Create Account</button> Or
         <a href="/advocates/new" class="badge badge-primary">Sign In</a> If You Already Have An Acount.

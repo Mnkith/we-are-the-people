@@ -16,6 +16,7 @@ class AdvocatesController < ApplicationController
 
   # POST: /advocates
   post "/advocates" do
+    
     redirect "/advocates"
   end
 
