@@ -8,15 +8,16 @@
       <label for=""></label>
       <input type="password" class="form-control" name="" id="" placeholder="Password">
     </div> %>
-
-    <form >
+    <% if flash.has?(:message) %>
+      <h5 style="color:red"><%= flash[:message] %></h5>
+    <% end %>
+    <form action="/advocates" method="post">
       <div class="form-group">
         <label for="">E-mail</label><br>
-        <input type="text" name="" id="" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>
+        <input type="text" name="email" id="" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
-        <label for=""></label><br>
-        <input type="text" name="" id="" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
-        <input type="text" name="" id="" class="form-control" placeholder="Re-enter Password" aria-describedby="helpId"><br>
+        <label for="Password">Password</label><br>
+        <input type="text" name="password" id="" class="form-control" placeholder="Password" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>
         <button type="submit" class="btn btn-primary">Sign In</button> Or
         <a href="/advocates/new" class="badge badge-primary">Sign Up</a> If You Don't Have An Account Yet.

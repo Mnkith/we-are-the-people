@@ -11,11 +11,18 @@ class AdvocatesController < ApplicationController
   end
 
   post "/advocates/registration" do
-    session[:id] ? (erb :"/advocates/logout") : (erb :"/advocates/registration")
+    if session[:id]
+      session.clear
+      # binding.pry
+      erb :"/advocates/logout" 
+    else
+      erb :"/advocates/registration"
+    end
   end
   
   # POST: /advocates
   post "/advocates" do
+    
     @user = Advocate.create params[:advocate]
     # user.save
     if @user.valid?
@@ -30,6 +37,7 @@ class AdvocatesController < ApplicationController
   get "/advocates/registration" do
     if session[:id]
       session.clear
+      # binding.pry
       erb :"/advocates/logout" 
     else
       erb :"/advocates/registration"
