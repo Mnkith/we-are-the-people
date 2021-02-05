@@ -37,7 +37,7 @@
           </li>
           <li class="nav-item">
           <%# <% binding.pry %> 
-            <a class="nav-link" <% if !session[:id] %> <%= style="visibility: hidden" %><% else %> href="/advocates/show" <% end %>>My Account</a>
+            <a class="nav-link" <% if !session[:id] %> <%= style="visibility: hidden" %><% end %> href="./advocates/show" >My Account</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -49,12 +49,19 @@
             </div>
           </li>
         </ul>
+        <% if session[:id] %>
+          <form class="form-inline my-2 my-lg-0" action="/advocates/<%= Advocate.find(session[:id]).slug %>" method="get">
+            <button class="btn btn-outline-success my-2 my-sm-0" <% if !session[:id] %> <%= style="visibility: hidden" %><% end %>  type="submit">My Account </button>
+          </form>
+        <% end %>
+
           <form class="form-inline my-2 my-lg-0" action="/advocates/registration" method="post">
             <%# <input class="form-control mr-sm-2" type="text" placeholder="Search"> %>
             <%# <% session[:id] = nil %> 
-            <%# <% binding.pry %> %>
+            <%# <% binding.pry %>  
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><% if session[:id] %><%= "Log Out" %><% else %><%= "Login/Sign Up" %><% end %></button>
           </form>
+          
         </div>
       </nav>
     <div class="wrapper">
