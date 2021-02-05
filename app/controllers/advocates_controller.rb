@@ -16,7 +16,9 @@ class AdvocatesController < ApplicationController
 
   # POST: /advocates
   post "/advocates" do
-    
+    user = Advocate.create params[:advocate]
+    # user.save
+    binding.pry
     redirect "/advocates"
   end
 
