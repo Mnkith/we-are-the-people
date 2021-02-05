@@ -38,9 +38,10 @@ class AdvocatesController < ApplicationController
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       session[:user_id] = @user.id
-      redirect '/users/home'
+      erb :"/advocates/registration"
     end
-    redirect '/sessions/login'
+    flash[:message] = "Account Not Found, Please Make Sure You Type In Your Credentials Correctly"
+    erb :"/advocates/registration"
   end
 
   get "/advocates/registration" do
