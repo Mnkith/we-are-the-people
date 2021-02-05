@@ -64,13 +64,14 @@ class AdvocatesController < ApplicationController
 
   # PATCH: /advocates/5
   patch "/advocates/:slug" do
+    binding.pry
     redirect "/advocates/:slug"
   end
 
   get "/advocates/:slug" do
     @advocate = Advocate.find_by_slug params[:slug]
     if @advocate && session[:id]
-      erb :"/advocates/show.html"
+      erb :"/advocates/show"
     else
       flash[:message] = "Please Sign In To See Your Account"
     end

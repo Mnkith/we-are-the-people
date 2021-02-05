@@ -36,8 +36,8 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-          <%# <% binding.pry %> %>
-            <a class="nav-link" <% if !session[:id] %> <%= style="visibility: hidden" %><% else %> href="/advocates/<%Advocate.find(session[:id]).slug%>" <% end %>>My Account</a>
+          <%# <% binding.pry %> 
+            <a class="nav-link" <% if !session[:id] %> <%= style="visibility: hidden" %><% else %> href="/advocates/show" <% end %>>My Account</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
