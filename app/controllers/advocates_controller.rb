@@ -23,22 +23,22 @@ class AdvocatesController < ApplicationController
   # POST: /advocates
   post "/advocates" do
     
-    @user = Advocate.create params[:advocate]
-    # user.save
-    if @user.valid?
-      session[:id] = @user.id
-      flash[:message] = "Congratulations #{@user.name}, Your Account Has Been Created SuccessFully."
-      redirect to "/advocates/#{ @user.slug }"
+    @advocate = Advocate.create params[:advocate]
+    # advocate.save
+    if @advocate.valid?
+      session[:id] = @advocate.id
+      flash[:message] = "Congratulations #{@advocate.name}, Your Account Has Been Created SuccessFully."
+      redirect to "/advocates/#{ @advocate.slug }"
     else
       erb :"/advocates/new"
     end
   end
   
   post '/login' do
-    @user = Advocate.find_by email: params[:email], password: params[:password]
-    if @user
-      session[:id] = @user.id
-      redirect to "/advocates/#{ @user.slug }"
+    @advocate = Advocate.find_by email: params[:email], password: params[:password]
+    if @advocate
+      session[:id] = @advocate.id
+      redirect to "/advocates/#{ @advocate.slug }"
     end
     flash[:message] = "Account Not Found, Please Make Sure You Type In Your Credentials Correctly"
     erb :"/advocates/registration"
@@ -65,7 +65,9 @@ class AdvocatesController < ApplicationController
   # PATCH: /advocates/5
   patch "/advocates/:slug" do
     binding.pry
-    redirect "/advocates/:slug"
+    @advocate = Advocate.find_by_slug params[:slug]
+    @advocate.update params[:advocate]
+    redirect "/advocates/#{ @advocate.slug }"
   end
 
   get "/advocates/:slug" do
