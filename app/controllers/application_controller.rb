@@ -9,7 +9,18 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
   end
-
+  patch "/advocates/:slug" do
+    # binding.pry
+    @advocate = Advocate.find_by_slug params[:slug]
+    @advocate.update params[:advocate]
+    if @advocate.valid? 
+      flash[:message] = "Your Account Was Updated Successfully."
+      redirect "/advocates/#{ @advocate.slug }"
+    else
+      binding.pry
+      erb :"/advocates/edit"
+    end
+  end
   get "/" do
     # p self
     # binding.pry
