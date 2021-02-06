@@ -3,6 +3,7 @@ class CreateDonations < ActiveRecord::Migration[5.2]
     create_table :donations do |t|
       t.integer :amount
       t.integer :advocate_id
+      t.integer :cause_id
       t.timestamps null: false
     end
   end
