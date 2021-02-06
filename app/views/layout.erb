@@ -36,7 +36,6 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-          <%# <% binding.pry %> 
             
           </li>
           <li class="nav-item dropdown">
@@ -51,17 +50,12 @@
         </ul>
         <% if session[:user_id] %>
           <form class="form-inline my-2 my-lg-0" action="/advocates/<%= Advocate.find(session[:user_id]).slug %>" method="get">
-            <button class="btn btn-outline-success my-2 my-sm-0" <% if !session[:user_id] %> <%= style="visibility: hidden" %><% end %>  type="submit">My Account </button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">My Account </button>
           </form>
         <% end %>
-
-          <form class="form-inline my-2 my-lg-0" action="/advocates/registration" method="post">
-            <%# <input class="form-control mr-sm-2" type="text" placeholder="Search"> %>
-            <%# <% session[:user_id] = nil %> 
-            <%# <% binding.pry %>  
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><% if session[:user_id] %><%= "Log Out" %><% else %><%= "Login/Sign Up" %><% end %></button>
-          </form>
-          
+        <form class="form-inline my-2 my-lg-0" action="/advocates/registration" method="post">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><% if session[:user_id] %><%= "Log Out" %><% else %><%= "Login/Sign Up" %><% end %></button>
+        </form>
         </div>
       </nav>
     <div class="wrapper">
