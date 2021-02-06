@@ -1,7 +1,7 @@
 <h1>Create New Account.</h1>
 
     <form action="/advocates" method="post">
-      <div class="form-group">
+      <div class="form-group" style="width: 500px;position: relative;left: 280px">
         <%# <% binding.pry %> 
         <label for="name">Name <span style="color:red;"><%= @advocate&.errors&.[](:name)&.[](0) %></span></label><br>
         <input type="text" name="advocate[name]" id="name" class="form-control" placeholder="User Name" aria-describedby="helpId"><br>

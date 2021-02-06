@@ -15,9 +15,17 @@
     font-size: 30px;
     text-align: left;
   }
+
+  .input-pos {
+    width: 500px;
+    position: relative;
+    left: 250px
+  }
   
   h3 {
+    
     font-size: 40px;
     line-height: 20px;
     vertical-align: bottom;
+    text-align: start;
   }

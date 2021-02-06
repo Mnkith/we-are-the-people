@@ -8,11 +8,11 @@
       <label for=""></label>
       <input type="password" class="form-control" name="" id="" placeholder="Password">
     </div> %>
-    <% if flash.has?(:message) %>
+    <% if flash.has?(:error) %>
       <h5 style="color:red"><%= flash[:message] %></h5>
     <% end %>
     <form action="/login" method="post">
-      <div class="form-group">
+      <div class="form-group" style="width: 500px;position: relative;left: 280px">
         <label for="">E-mail</label><br>
         <input type="text" name="email" id="" class="form-control" placeholder="E-mail" aria-describedby="helpId"><br>
         <%# <small id="helpId" class="text-muted">Help text</small><br> %>

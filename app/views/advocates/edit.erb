@@ -2,7 +2,7 @@
 
     <form action="/advocates/<%= @advocate&.slug%>" method="post">
     
-      <div class="form-group">
+      <div class="form-group" style="width: 500px;position: relative;left: 280px">
         <input type="hidden" name="_method" value="patch">
 
         <label for="name">Name <span style="color:red;"><%= @advocate&.errors&.[](:name)&.[](0) %></span></label><br>

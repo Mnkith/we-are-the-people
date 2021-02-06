@@ -44,7 +44,7 @@ class AdvocatesController < ApplicationController
   post '/login' do
     @advocate = Advocate.find_by email: params[:email], password: params[:password]
     if @advocate
-      binding.pry
+      # binding.pry
       session[:user_id] = @advocate.id
       redirect to "/advocates/#{ @advocate.slug }"
     else
@@ -67,6 +67,7 @@ class AdvocatesController < ApplicationController
 
   # GET: /advocates/5/edit
   get "/advocates/:slug/edit" do
+    # binding.pry
     @advocate = Advocate.find_by_slug params[:slug]
     erb :"/advocates/edit"
   end
@@ -76,10 +77,11 @@ class AdvocatesController < ApplicationController
 
   get "/advocates/:slug" do
     @advocate = Advocate.find_by_slug params[:slug]
-    if @advocate && session[:user_id]
+    if @advocate && @advocate.id == session[:user_id]
       erb :"/advocates/show"
     else
-      flash[:message] = "Please Sign In To See Your Account"
+      flash[:error] = "Please Sign In To See Your Account"
+      erb :"/advocates/registration"
     end
     # binding.pry
   end
