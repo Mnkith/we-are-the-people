@@ -1,4 +1,4 @@
-<h2>Sinatra Template Default Page</h2>
+<h2>Available Causes To Support</h2>
 
 <div class="grid-container">
   <% Cause.all.each do |cause| %>
@@ -7,7 +7,12 @@
           <img src="<%= cause.image_link %>" alt="<%= cause.name %>" width="120" height="120" style="float:left;margin:0px 50px" >
           <h3><%= cause.name %></h3>
           <button type="submit" class="btn btn-primary">More Details</button>
-      <form>
+      </form>
+
+      <form action="/donations/new" method='get'>
+          <button type="submit" class="btn btn-primary">Support THis Cause</button>
+      </form>
+    
     </div>
   <% end %>
 </div>
