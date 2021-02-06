@@ -1,7 +1,7 @@
 <h1>Edit Your Account Credentials.</h1>
 
-    <form action='/advocates/<%= @advocate.slug %>' method='post'>
-      <input type='hidden' name='_method' value='patch'>
+    <form action="/advocates/<%= @advocate.slug %>" method="post">
+      <input type="hidden" name="_method" value="patch">
       <div class="form-group">
         <%# <% binding.pry %> 
         <label for="name">Name <span style="color:red;"><%= @advocate&.errors&.[](:name)&.[](0) %></span></label><br>

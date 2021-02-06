@@ -39,9 +39,10 @@ class AdvocatesController < ApplicationController
     if @advocate
       session[:id] = @advocate.id
       redirect to "/advocates/#{ @advocate.slug }"
+    else
+      flash[:message] = "Account Not Found, Please Make Sure You Type In Your Credentials Correctly"
+      erb :"/advocates/registration"
     end
-    flash[:message] = "Account Not Found, Please Make Sure You Type In Your Credentials Correctly"
-    erb :"/advocates/registration"
   end
 
   get "/advocates/registration" do
