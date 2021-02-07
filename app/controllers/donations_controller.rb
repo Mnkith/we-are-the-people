@@ -12,7 +12,7 @@ class DonationsController < ApplicationController
 
   # POST: /donations
   post "/donations" do
-    binding.p
+    binding.pry
     redirect "/donations"
   end
 

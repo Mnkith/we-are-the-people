@@ -1,9 +1,8 @@
 class Advocate < ActiveRecord::Base
   extend Slug::ClassMethods
   include Slug::InstanceMethods
-  # include ActiveRecord::Validations
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: { message: "must be given please" }, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
