@@ -12,6 +12,8 @@ class DonationsController < ApplicationController
 
   # POST: /donations
   post "/donations" do
+    @advocate = Advocate.find session[:user_id]
+    
     binding.pry
     redirect "/donations"
   end

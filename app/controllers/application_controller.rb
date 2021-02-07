@@ -29,4 +29,9 @@ class ApplicationController < Sinatra::Base
     erb :home
   end
 
+  helpers do
+    def current_user
+      Advocate.find session[:user_id]
+    end
+
 end

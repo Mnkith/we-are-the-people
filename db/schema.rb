@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 2021_02_07_001149) do
   end
 
   create_table "causes", force: :cascade do |t|
+    t.string "name", null: false
     t.text "description"
     t.string "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "goal", default: 0
     t.integer "current", default: 0
-    t.string "name"
   end
 
   create_table "donations", force: :cascade do |t|
