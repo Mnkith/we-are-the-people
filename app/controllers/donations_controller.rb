@@ -7,23 +7,26 @@ class DonationsController < ApplicationController
 
   # GET: /donations/new
   get "/donations/new" do
+    # binding.pry
     erb :"/donations/new.html"
   end
 
   # POST: /donations
   post "/donations" do
+    # binding.pry
     @advocate = current_user
     #prefer different amount over preset amount
     @donation = !params[:different].empty? ? Donation.create(amount: params[:different]) : Donation.create(amount: params[:preset])
     
     if @donation.valid?
-       @advocate.donations << @donation 
+       @donation.advocate = @advocate  
+       @donation.cause = @advocate.causes.last 
        redirect to "/donations/#{@donation.id}"
     else
+      
        erb :"/donations/new.html"
     end
 
-    # binding.pry
     # redirect "/donations"
   end
 
