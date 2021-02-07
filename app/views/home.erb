@@ -1,6 +1,7 @@
 <h2>Sinatra Template Default Page</h2>
 
 <div class="grid-container">
+<% %>
   <% Cause.all.each do |cause| %>
     <div class="grid-item wrapper" >
       <form action='/causes/<%= cause.slug %>' method='get'>

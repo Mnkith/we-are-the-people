@@ -4,7 +4,7 @@
       <div class="form-group" style="width: 500px;position: relative;left: 280px">
 
         <% Donation::PRESET_AMOUNTS.each do |amount| %>
-          <p><input type="radio" id="<%= amount %>" name="preset" value="<%= amount %>"><%= amount%>&</p>
+          <p><input type="radio" id="<%= amount %>" name="preset" value="<%= amount %>"> $<%= amount%></p>
         <% end %>
 
 
