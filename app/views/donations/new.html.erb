@@ -8,9 +8,9 @@
         <% end %>
 
 
-        <label for="name">Or Enter Different Amount In Dollars<span style="color:red;"><%= @advocate&.errors&.[](:name)&.[](0) %></span></label><br>
+        <label for="name">Or Enter Different Amount In Dollars</label><br>
         <input type="text" name="different" id="name" class="form-control" placeholder="Enter Donation Amount In Dollars" aria-describedby="helpId"><br>
-        
+        <p style="color:red;">Amount <%= @donation&.errors&.[](:amount)&.[](0) %></p>
         <button type="submit" class="btn btn-primary"><i class="fas fa-donate">Donate</i></button>
         
       </div>

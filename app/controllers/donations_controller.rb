@@ -12,10 +12,19 @@ class DonationsController < ApplicationController
 
   # POST: /donations
   post "/donations" do
-    @advocate = Advocate.find session[:user_id]
+    @advocate = current_user
+    #prefer different amount over preset amount
+    @donation = !params[:different].empty? ? Donation.create(amount: params[:different]) : Donation.create(amount: params[:preset])
     
-    binding.pry
-    redirect "/donations"
+    if @donation.valid?
+       @advocate.donations << @donation 
+       redirect to "/donations/#{@donation.id}"
+    else
+       erb :"/donations/new.html"
+    end
+
+    # binding.pry
+    # redirect "/donations"
   end
 
   # GET: /donations/5
