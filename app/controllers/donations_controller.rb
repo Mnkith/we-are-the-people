@@ -7,16 +7,16 @@ class DonationsController < ApplicationController
 
   # GET: /donations/new
   get "/donations/new" do
-    # binding.pry
+    binding.pry
     erb :"/donations/new.html"
   end
 
   # POST: /donations
   post "/donations" do
-    # binding.pry
     @advocate = current_user
     #prefer different amount over preset amount
     @donation = !params[:different].empty? ? Donation.create(amount: params[:different]) : Donation.create(amount: params[:preset])
+    # binding.pry
     
     if @donation.valid?
        @donation.advocate = @advocate  

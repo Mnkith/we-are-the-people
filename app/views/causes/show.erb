@@ -6,8 +6,10 @@
 
   <p><%= @cause.description %></p>
 
+  <% session[:cause_id] = @cause.id %>
+
   <form action="/donations/new" method='get'>
-    <% current_user.causes << @cause %>
+    <%# <% current_user.causes << @cause %> %>
     <button type="submit" class="btn btn-primary">Support This Cause</button>
   </form>            
 </div>
