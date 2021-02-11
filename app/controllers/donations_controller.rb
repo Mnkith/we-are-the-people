@@ -23,7 +23,7 @@ class DonationsController < ApplicationController
       @donation.cause = Cause.find session[:cause_id]
       @donation.save
       redirect to "/donations/#{@donation.id}"
-      binding.pry
+      # binding.pry
     else
       
        erb :"/donations/new.html"
@@ -34,6 +34,7 @@ class DonationsController < ApplicationController
 
   # GET: /donations/5
   get "/donations/:id" do
+    @donation = Donation.find params[:id]
     erb :"/donations/show.html"
   end
 

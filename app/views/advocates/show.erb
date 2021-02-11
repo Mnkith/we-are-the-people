@@ -10,13 +10,23 @@
   <H6> 
   <form action="/advocates" method='get'>
       <button type="submit" class="btn btn-primary">Home</button>
-  </form> Your Account.
+  </form>
   </h6> 
   Or 
 </h4>
 
 <H6> 
   <form action="/advocates/<%= @advocate.slug %>/edit" method='get'>
-      <button type="submit" class="btn btn-primary">Edit</button>
-  </form> Your Account.
+      <button type="submit" class="btn btn-primary">Edit</button> Your Account.
+  </form> 
 </h6>
+
+<% if @advocate.donations.empty? %>
+  <h5>Currently You Have No Donations To List</h5>
+<% else %>
+  <% @advocate.donations.each do |donation|%>
+    <h5>On <%= donation.created_at%> You Made A Donation Of <%= donation.amount %>$ 
+    <%# To Support <%=  Cause.find(donation.cause_id).name %> %>
+    </h5>
+  <% end %>
+<% end %>
