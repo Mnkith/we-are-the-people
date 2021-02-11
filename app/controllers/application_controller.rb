@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def current_user
-      if session[:user_id] && !Advocate.all.empty?
+      if session[:user_id] && Advocate.all.include?(Advocate.find session[:user_id])
         Advocate.find session[:user_id] 
       else
         session[:user_id] = nil

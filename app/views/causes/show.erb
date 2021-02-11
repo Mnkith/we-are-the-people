@@ -7,8 +7,20 @@
   <p><%= @cause.description %></p>
 
   <% session[:cause_id] = @cause.id %>
-
-  <form action="/donations/new" method='get'>
-    <button type="submit" class="btn btn-primary">Support This Cause</button>
-  </form>            
+<% if current_user %>
+  <% if current_user.causes.include?(@cause)%>
+    <p>You've Donated To This Cause Previously</p>
+    <form action="/donations/new" method='get'>
+      <button type="submit" class="btn btn-primary">Donate Again</button>
+    </form>
+  <% else %>
+    <form action="/donations/new" method='get'>
+      <button type="submit" class="btn btn-primary">Support This Cause</button>
+    </form>
+  <% end %>
+  <% else %>
+  <form action="/advocates/registration" method='get'>
+    Please <button type="submit" class="btn btn-primary">Login/Sign Up</button> To Be Able To Support This Cause
+  </form>
+<% end %>            
 </div>
