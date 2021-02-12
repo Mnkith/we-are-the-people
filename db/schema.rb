@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_030547) do
+ActiveRecord::Schema.define(version: 2021_02_12_235512) do
 
   create_table "advocates", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_030547) do
     t.datetime "updated_at", null: false
     t.integer "goal", default: 500
     t.integer "current", default: 0
+    t.boolean "met", default: false
   end
 
   create_table "donations", force: :cascade do |t|
