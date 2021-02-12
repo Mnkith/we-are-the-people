@@ -1,8 +1,5 @@
 class AdvocatesController < ApplicationController
-  # use Rack::Flash
-  @@errors = {}
   get "/advocates" do
-    # @advocate = Advocate.find session[:user_id]
     erb :"/advocates/index"
   end
 
@@ -61,6 +58,19 @@ class AdvocatesController < ApplicationController
       erb :"/advocates/registration"
     end
     # binding.pry
+  end
+
+  patch "/advocates/:slug" do
+    @advocate = Advocate.find_by_slug params[:slug]
+    @advocate.update params[:advocate]
+    if @advocate.valid? 
+      flash[:message] = "Your Account Was Updated Successfully."
+      redirect "/advocates/#{ @advocate.slug }"
+    else
+      flash[:errors] =  @advocate.errors
+      # binding.pry
+      redirect to "/advocates/#{ @advocate.slug }/edit"
+    end
   end
 
   delete "/advocates/:id/delete" do

@@ -19,7 +19,7 @@ class CausesController < ApplicationController
     erb :"/causes/show"
   end
   
-  get "/causes/:id/edit" do
+  get "/causes/:slug/edit" do
     erb :"/causes/edit"
   end
 

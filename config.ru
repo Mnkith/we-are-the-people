@@ -5,7 +5,7 @@ require './config/environment'
 # end
 
 run ApplicationController
+use Rack::MethodOverride
 use DonationsController
 use AdvocatesController
 use CausesController
-use Rack::MethodOverride

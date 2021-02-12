@@ -1,6 +1,6 @@
 <h1><%= @cause.name %></h1>
 
-<div style="background-color: lightblue;hight:100px;width:550px">
+<div style="background-color: lightblue;hight:100px;width:800px">
 
   <img src="../<%= @cause.image_link %>" alt="<%= @cause.name %>" width="120" height="130" style="vertical-align:middle;float:left;margin:0px 50px" >
 
@@ -8,21 +8,24 @@
 
   <% session[:cause_id] = @cause.id %>
 
-  
 <% if current_user %>
-  <% if current_user.causes.include?(@cause)%>
-    <p>You've Donated To This Cause Previously</p>
-    <form action="/donations/new" method='get'>
-      <button type="submit" class="btn btn-primary">Donate Again</button>
+  <% if current_user.name == 'admin'%>
+    <form action="/causes/<%= @cause.slug %>/edit" method='get'>
+      <button type="submit" class="btn btn-primary">Edit This Cause</button>
     </form>
-  <% else %>
-    <form action="/donations/new" method='get'>
-      <button type="submit" class="btn btn-primary">Support This Cause</button>
-    </form>
+    <% elsif  current_user.causes.include?(@cause)%>
+      <p>You've Donated To This Cause Previously</p>
+      <form action="/donations/new" method='get'>
+        <button type="submit" class="btn btn-primary">Donate Again</button>
+      </form>
+    <% else %>
+      <form action="/donations/new" method='get'>
+        <button type="submit" class="btn btn-primary">Support This Cause</button>
+      </form>
   <% end %>
   <% else %>
-  <form action="/advocates/registration" method='get'>
-    Please <button type="submit" class="btn btn-primary">Login/Sign Up</button> To Be Able To Support This Cause
-  </form>
+    <form action="/advocates/registration" method='get'>
+      Please <button type="submit" class="btn btn-primary">Login/Sign Up</button> To Be Able To Support This Cause
+    </form>
 <% end %>            
 </div>

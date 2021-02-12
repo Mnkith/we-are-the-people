@@ -10,23 +10,8 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     register Sinatra::Flash
   end
-  patch "/advocates/:slug" do
-    # binding.pry
-    @advocate = Advocate.find_by_slug params[:slug]
-    @advocate.update params[:advocate]
-    if @advocate.valid? 
-      flash[:message] = "Your Account Was Updated Successfully."
-      redirect "/advocates/#{ @advocate.slug }"
-    else
-      # binding.pry
-      erb :"/advocates/edit"
-    end
-  end
-  get "/" do
-    # p self
-    # binding.pry
-    # @session = session
 
+  get "/" do
     erb :home
   end
 
@@ -38,11 +23,6 @@ class ApplicationController < Sinatra::Base
         session[:user_id] = nil
       end
     end
-
-    def sessions_errors obj 
-      session[:errors] = obj.errors
-    end
-
   end
 
 end
