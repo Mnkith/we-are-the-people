@@ -42,8 +42,9 @@ class AdvocatesController < ApplicationController
   # end
 
   post '/login' do
-    @advocate = Advocate.find_by email: params[:email], password: params[:password]
-    if @advocate
+    @advocate = Advocate.find_by email: params[:email]
+
+    if @advocate && @advocate.authenticate(params[:password])
       # binding.pry
       session[:user_id] = @advocate.id
       redirect to "/advocates/#{ @advocate.slug }"

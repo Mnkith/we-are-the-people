@@ -7,6 +7,8 @@ class Advocate < ActiveRecord::Base
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
 
+  has_secure_password
+
   has_many :donations
   has_many :causes, through: :donations
 end
