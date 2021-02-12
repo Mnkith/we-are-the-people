@@ -7,6 +7,8 @@
   <p><%= @cause.description %></p>
 
   <% session[:cause_id] = @cause.id %>
+
+  
 <% if current_user %>
   <% if current_user.causes.include?(@cause)%>
     <p>You've Donated To This Cause Previously</p>

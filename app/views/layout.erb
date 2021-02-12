@@ -48,15 +48,15 @@
             </div>
           </li>
         </ul>
-        <% if session[:user_id] %>
-          <h3 style="position: relative;right: 400px;color: rgba(97, 82, 236, 0.4);"><%= Advocate.find(session[:user_id]).name %></h3>
-          <form class="form-inline my-2 my-lg-0" action="/advocates/<%= Advocate.find(session[:user_id]).slug %>" method="get">
+        <% if current_user %>
+          <h3 style="position: relative;right: 400px;color: rgba(97, 82, 236, 0.4);"><%= current_user.name %></h3>
+          <form class="form-inline my-2 my-lg-0" action="/advocates/<%= current_user.slug %>" method="get">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">My Account </button>
           </form>
         <% end %>
         
         <form class="form-inline my-2 my-lg-0" action="/advocates/registration" method="post">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><% if session[:user_id] %><%= "Log Out" %><% else %><%= "Login/Sign Up" %><% end %></button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><% if current_user %><%= "Log Out" %><% else %><%= "Login/Sign Up" %><% end %></button>
         </form>
         </div>
       </nav>
