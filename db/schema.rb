@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_001149) do
     t.string "image_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "goal", default: 0
+    t.integer "goal", default: 500
     t.integer "current", default: 0
   end
 

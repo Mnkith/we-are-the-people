@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def current_user
-      if session[:user_id] && Advocate.all.include?(Advocate.find session[:user_id])
+      if session[:user_id] && Advocate.find_by(id: session[:user_id]) #find will rais an error if no id was found while find_by will return nil
         Advocate.find session[:user_id] 
       else
         session[:user_id] = nil
