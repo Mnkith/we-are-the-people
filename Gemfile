@@ -14,6 +14,7 @@ gem 'bcrypt'
 gem 'tux'
 gem 'rack-flash3'
 gem 'dotenv'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

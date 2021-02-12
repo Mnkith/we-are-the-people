@@ -1,5 +1,5 @@
 class AdvocatesController < ApplicationController
-  use Rack::Flash
+  # use Rack::Flash
   @@errors = {}
   get "/advocates" do
     # @advocate = Advocate.find session[:user_id]

@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
     set :public_folder, 'public'
     set :views, 'app/views'
+    register Sinatra::Flash
   end
   patch "/advocates/:slug" do
     # binding.pry
@@ -23,7 +24,7 @@ class ApplicationController < Sinatra::Base
   end
   get "/" do
     # p self
-    binding.pry
+    # binding.pry
     # @session = session
 
     erb :home
