@@ -1,32 +1,28 @@
 class AdvocatesController < ApplicationController
   use Rack::Flash
+  @@errors = {}
   get "/advocates" do
-    @advocate = Advocate.find session[:user_id]
+    # @advocate = Advocate.find session[:user_id]
     erb :"/advocates/index"
   end
 
   get "/advocates/new" do
+    # binding.pry 
     erb :"/advocates/new"
-  end
-
-  post "/advocates/registration" do
-    if session[:user_id]
-      session.clear
-      # binding.pry
-      erb :"/advocates/logout" 
-    else
-      erb :"/advocates/registration"
-    end
   end
   
   post "/advocates" do
+    # flash.clear
+    # session[:errors]&.clear
     @advocate = Advocate.create params[:advocate]
     if @advocate.valid?
       session[:user_id] = @advocate.id
       flash[:message] = "Congratulations #{@advocate.name}, Your Account Has Been Created SuccessFully."
       redirect to "/advocates/#{ @advocate.slug }"
     else
-      erb :"/advocates/new"
+      @@errors =  @advocate.errors
+      binding.pry
+      redirect to  "/advocates/new"
     end
   end
  

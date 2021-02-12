@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :session_secret, "secret"
+    set :session_secret, ENV['SESSION_SECRET']
     set :public_folder, 'public'
     set :views, 'app/views'
   end
@@ -17,13 +17,13 @@ class ApplicationController < Sinatra::Base
       flash[:message] = "Your Account Was Updated Successfully."
       redirect "/advocates/#{ @advocate.slug }"
     else
-      binding.pry
+      # binding.pry
       erb :"/advocates/edit"
     end
   end
   get "/" do
     # p self
-    # binding.pry
+    binding.pry
     # @session = session
 
     erb :home
@@ -37,6 +37,11 @@ class ApplicationController < Sinatra::Base
         session[:user_id] = nil
       end
     end
+
+    def sessions_errors obj 
+      session[:errors] = obj.errors
+    end
+
   end
 
 end

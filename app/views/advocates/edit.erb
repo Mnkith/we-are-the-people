@@ -5,9 +5,9 @@
       <div class="form-group" style="width: 500px;position: relative;left: 280px">
         <input type="hidden" name="_method" value="patch">
 
-        <label for="name">Name <span style="color:red;"><%= @advocate&.errors&.[](:name)&.[](0) %></span></label><br>
+        <label for="name">Name </label><br>
         <input type="text" name="advocate[name]" id="name" class="form-control" value="<%= @advocate&.name%>" aria-describedby="helpId"><br>
-
+<h6 style="color:red;"><%= @advocate&.errors&.[](:name)&.[](0) %></h6>
         <label for="email">E-mail <span style="color:red;"><%= @advocate&.errors&.[](:email)&.[](0) %></span></label><br>
         <input type="text" name="advocate[email]" id="email" class="form-control" value="<%= @advocate&.email%>" aria-describedby="helpId"><br>
 

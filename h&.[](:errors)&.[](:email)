@@ -1,0 +1,14 @@
+=> [32m#<ActiveModel::Errors:0x00005616d0804070[0m
+ @base[32m=[0m
+  [32m#<Advocate:0x00005616d0746340[0m
+   id: [1;36mnil[0m,
+   name: [31m[1;31m"[0m[31mMunkith Abid[1;31m"[0m[31m[0m,
+   email: [31m[1;31m"[0m[31mmunkithabid@gmail.com[1;31m"[0m[31m[0m,
+   password_digest: [31m[1;31m"[0m[31m$2a$12$xDKAmlKiEO7I0Y0bN62JguCkFt4MzQBBj57nR/arooTASbSQfZ0r6[1;31m"[0m[31m[0m,
+   created_at: [1;36mnil[0m,
+   updated_at: [1;36mnil[0m[32m>[0m,
+ @details[32m=[0m
+  {[33m:name[0m=>[{[33m:error[0m=>[33m:taken[0m, [33m:value[0m=>[31m[1;31m"[0m[31mMunkith Abid[1;31m"[0m[31m[0m}],
+   [33m:email[0m=>[{[33m:error[0m=>[33m:taken[0m, [33m:value[0m=>[31m[1;31m"[0m[31mmunkithabid@gmail.com[1;31m"[0m[31m[0m}],
+   [33m:password_confirmation[0m=>[{[33m:error[0m=>[33m:confirmation[0m, [33m:attribute[0m=>[31m[1;31m"[0m[31mPassword[1;31m"[0m[31m[0m}, {[33m:error[0m=>[33m:confirmation[0m, [33m:attribute[0m=>[31m[1;31m"[0m[31mPassword[1;31m"[0m[31m[0m}]},
+ @messages[32m=[0m{[33m:name[0m=>[[31m[1;31m"[0m[31mhas already been taken[1;31m"[0m[31m[0m], [33m:email[0m=>[[31m[1;31m"[0m[31mhas already been taken[1;31m"[0m[31m[0m], [33m:password_confirmation[0m=>[[31m[1;31m"[0m[31mdoesn't match Password[1;31m"[0m[31m[0m]}[32m>[0m
