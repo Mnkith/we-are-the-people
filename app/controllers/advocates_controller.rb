@@ -14,14 +14,14 @@ class AdvocatesController < ApplicationController
   post "/advocates" do
     # flash.clear
     # session[:errors]&.clear
-    @advocate = Advocate.create params[:advocate]
-    if @advocate.valid?
-      session[:user_id] = @advocate.id
-      flash[:message] = "Congratulations #{@advocate.name}, Your Account Has Been Created SuccessFully."
-      redirect to "/advocates/#{ @advocate.slug }"
+    advocate = Advocate.create params[:advocate]
+    if advocate.valid?
+      session[:user_id] = advocate.id
+      flash[:message] = "Congratulations #{advocate.name}, Your Account Has Been Created SuccessFully."
+      redirect to "/advocates/#{ advocate.slug }"
     else
-      @@errors =  @advocate.errors
-      binding.pry
+      flash[:errors] =  advocate.errors
+      # binding.pry
       redirect to  "/advocates/new"
     end
   end

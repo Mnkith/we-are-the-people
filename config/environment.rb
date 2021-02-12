@@ -5,7 +5,7 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 # require 'dotenv/load'
 require "dotenv"
-require 'sinatra/flash'
+# require 'sinatra/flash'
 Dotenv.load
 ActiveRecord::Base.establish_connection(
   :adapter => "sqlite3",

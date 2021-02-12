@@ -8,7 +8,7 @@
       <label for=""></label>
       <input type="password" class="form-control" name="" id="" placeholder="Password">
     </div> %>
-    <% if flash.has?(:message) %>
+    <% if flash[:message] %>
       <h5 style="color:red"><%= flash[:message] %></h5>
     <% end %>
     <form action="/login" method="post">
