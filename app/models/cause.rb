@@ -3,7 +3,7 @@ class Cause < ActiveRecord::Base
   include Slug::InstanceMethods
   # validates :description, presence: true
   validates :name, uniqueness: true, presence: true
-  validates :goal, numericality: { only_integer: true, greater_than: 0}
+  validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
 
   has_many :donations
   has_many :advocates, through: :donations

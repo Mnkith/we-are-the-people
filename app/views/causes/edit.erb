@@ -14,6 +14,9 @@
     <label for="goal">Goal <span style="color:red;"><%= flash&.[](:errors)&.[](:goal)&.[](0) %></span></label><br>
     <input type="text" name="cause[goal]" id="goal" class="form-control" value="<%= @cause&.goal%>" aria-describedby="helpId" required><br>
 
+    <label for="image_link">Image link <span style="color:red;"><%= flash&.[](:errors)&.[](:image_link)&.[](0) %></span></label><br>
+    <input type="text" name="cause[image_link]" id="image_link" class="form-control" value="<%= @cause&.image_link%>" aria-describedby="helpId" ><br>
+    
     <button type="submit" class="btn btn-primary">Update Cause</button>
   </div>
 </form>
