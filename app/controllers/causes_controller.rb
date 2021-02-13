@@ -10,7 +10,19 @@ class CausesController < ApplicationController
   end
   
   post "/causes" do
-    redirect "/causes"
+    # flash.clear
+    # session[:errors]&.clear
+    # params[:cause][:email].downcase!
+    cause = Cause.create params[:cause]
+    if cause.valid?
+      # session[:user_id] = cause.id
+      flash[:message] = "#{cause.name} Has Been Created SuccessFully."
+      redirect to "/causes/#{ cause.slug }"
+    else
+      flash[:errors] =  cause.errors
+      # binding.pry
+      redirect to  "/causes/new"
+    end
   end
 
   get "/causes/:slug" do
@@ -35,7 +47,7 @@ class CausesController < ApplicationController
     else
       flash[:errors] =  cause.errors
       # binding.pry
-      #call original object to avoid blank entry route missdirect like -/advocates//edit, delete rquired from edit view to see effect
+      #call original object to avoid blank entry route missdirect like -/causes//edit, delete rquired from edit view to see effect
       redirect to "/causes/#{ Cause.find_by_slug(params[:slug]).slug }/edit"
     end
   end
