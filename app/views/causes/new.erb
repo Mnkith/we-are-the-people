@@ -1,1 +1,19 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>New Cause Information</h1>
+
+<form action="/causes/<%= @cause&.slug%>" method="post">
+
+  <div class="form-group" style="width: 500px;position: relative;left: 280px">
+    <input type="hidden" name="_method" value="patch">
+
+    <label for="name">Name <span style="color:red;"><%= flash&.[](:errors)&.[](:name)&.[](0) %></span></label><br>
+    <input type="text" name="cause[name]" id="name" class="form-control" value="<%= @cause&.name%>" aria-describedby="helpId" required><br>
+
+    <label for="description">Description <span style="color:red;"><%= flash&.[](:errors)&.[](:description)&.[](0) %></span></label><br>
+    <textarea name="cause[description]" id="description" class="form-control"  aria-describedby="helpId" required><%= @cause&.description %></textarea><br>
+
+    <label for="goal">Goal <span style="color:red;"><%= flash&.[](:errors)&.[](:goal)&.[](0) %></span></label><br>
+    <input type="text" name="cause[goal]" id="goal" class="form-control" value="<%= @cause&.goal%>" aria-describedby="helpId" required><br>
+
+    <button type="submit" class="btn btn-primary">Update Cause</button>
+  </div>
+</form>

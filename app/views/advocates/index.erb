@@ -1,5 +1,11 @@
 <h2>Available Causes To Support</h2>
 
+<% if current_user.name == 'admin'%>
+  <form action="/causes/new" method='get'>
+    <button type="submit" class="btn btn-primary">Add New Cause</button>
+  </form>
+<% end %>
+
 <div class="grid-container">
   <% Cause.all.each do |cause| %>
     <div class="grid-item wrapper" >
@@ -8,11 +14,6 @@
           <h3><%= cause.name %></h3>
           <button type="submit" class="btn btn-primary">More Details</button>
       </form>
-
-      <%# <form action="/donations/new" method='get'>
-          <button type="submit" class="btn btn-primary">Support This Cause</button>
-      </form> %>
-    
     </div>
   <% end %>
 </div>

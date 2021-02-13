@@ -38,18 +38,9 @@
           <li class="nav-item">
             
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#">Action 1</a>
-              <a class="dropdown-item" href="#">Action 2</a>
-              <a class="dropdown-item" href="#">Action 2</a>
-              <a class="dropdown-item" href="#">Action 2</a>
-            </div>
-          </li>
         </ul>
         <% if current_user %>
-          <h3 style="position: relative;right: 400px;color: rgba(97, 82, 236, 0.4);"><%= current_user.name %></h3>
+          <h3 style="position: relative;right: 400px;color: rgba(97, 82, 236, 0.4);">Hello <%= current_user.name %></h3>
           <form class="form-inline my-2 my-lg-0" action="/advocates/<%= current_user.slug %>" method="get">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">My Account </button>
           </form>
