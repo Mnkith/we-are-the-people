@@ -70,7 +70,8 @@ class AdvocatesController < ApplicationController
     else
       flash[:errors] =  @advocate.errors
       # binding.pry
-      redirect to "/advocates/#{ @advocate.slug }/edit"
+      #call original object to avoid blank entry route missdirect like -/advocates//edit, delete rquired from edit view to see effect
+      redirect to "/advocates/#{ Advocate.find_by_slug(params[:slug]).slug }/edit"
     end
   end
 

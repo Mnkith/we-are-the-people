@@ -25,15 +25,18 @@ class CausesController < ApplicationController
   end
 
   patch "/causes/:slug" do
-    @cause = Cause.find_by_slug params[:slug]
-    @cause.update params[:cause]
-    if @cause.valid? 
+    cause =  Cause.find_by_slug params[:slug]
+    
+    cause.update params[:cause]
+    # binding.pry
+    if cause.valid? 
       flash[:message] = "The Cause Was Updated Successfully."
-      redirect "/causes/#{ @cause.slug }"
+      redirect "/causes/#{ cause.slug }"
     else
-      flash[:errors] =  @cause.errors
+      flash[:errors] =  cause.errors
       # binding.pry
-      redirect to "/causes/#{ @cause.slug }/edit"
+      #call original object to avoid blank entry route missdirect like -/advocates//edit, delete rquired from edit view to see effect
+      redirect to "/causes/#{ Cause.find_by_slug(params[:slug]).slug }/edit"
     end
   end
 
