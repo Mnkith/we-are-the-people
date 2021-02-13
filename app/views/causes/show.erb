@@ -1,3 +1,11 @@
+<% if flash[:message]%>
+  <h2><%= flash[:message] %></h2>
+<% end %>
+
+
+
+
+
 <h1><%= @cause.name %></h1>
 
 <div style="background-color: lightblue;hight:100px;width:800px">
@@ -12,6 +20,9 @@
   <% if current_user.name == 'admin'%>
     <form action="/causes/<%= @cause.slug %>/edit" method='get'>
       <button type="submit" class="btn btn-primary">Edit This Cause</button>
+    </form>
+    <form action="/causes/<%= @cause.slug %>/edit" method='get'>
+      <button type="submit" class="btn btn-primary">Delete This Cause</button>
     </form>
     <% elsif  current_user.causes.include?(@cause)%>
       <p>You've Donated To This Cause Previously</p>

@@ -1,15 +1,18 @@
+<style>
+    .required input:after { content:"*"; }
+</style>
 <h1>Edit Your Account Credentials.</h1>
 
     <form action="/advocates/<%= @advocate&.slug%>" method="post">
     
-      <div class="form-group" style="width: 500px;position: relative;left: 280px">
+      <div class="form-group " style="required; width: 500px;position: relative;left: 280px">
         <input type="hidden" name="_method" value="patch">
 
         <label for="name">Name <span style="color:red;"><%= flash&.[](:errors)&.[](:name)&.[](0) %></span></label><br>
         <input type="text" name="advocate[name]" id="name" class="form-control" value="<%= @advocate&.name%>" aria-describedby="helpId" required><br>
 
         <label for="email">E-mail <span style="color:red;"><%= flash&.[](:errors)&.[](:email)&.[](0) %></span></label><br>
-        <input type="email" name="advocate[email]" id="email" class="form-control" value="<%= @advocate&.email%>" aria-describedby="helpId" required><br>
+        <input  type="email" name="advocate[email]" id="email" class="form-control" value="<%= @advocate&.email%>" aria-describedby="helpId" required ><br>
 
         <label for="password">Password <span style="color:red;"><%= flash&.[](:errors)&.[](:password)&.[](0) %></span></label><br>
         <input type="text" name="advocate[password]" id="password" class="form-control" value="<%= @advocate&.password%>" aria-describedby="helpId" required><br>

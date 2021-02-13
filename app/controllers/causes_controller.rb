@@ -16,7 +16,7 @@ class CausesController < ApplicationController
     cause = Cause.create params[:cause]
     if cause.valid?
       # session[:user_id] = cause.id
-      flash[:message] = "#{cause.name} Has Been Created SuccessFully."
+      flash[:message] = "#{cause.name} Has Been Created Successfully."
       redirect to "/causes/#{ cause.slug }"
     else
       flash[:errors] =  cause.errors
@@ -52,7 +52,7 @@ class CausesController < ApplicationController
     end
   end
 
-  delete "/causes/:id/delete" do
+  delete "/causes/:slug/delete" do
     redirect "/causes"
   end
 end

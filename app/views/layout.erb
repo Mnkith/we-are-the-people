@@ -6,18 +6,25 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-      <style>
-        .wrapper {
-          background: rgb(0,0,0,.3);
-          -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
-          -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-          box-shadow: 0 0 10px rgba(0,0,0,.3);
-          margin: 16px auto;
-          max-width: 1300px;
-          padding: 2.25%; /* 18px / 800px */
-          width: 98%;
-        }
-      </style>
+    <style>
+      .wrapper {
+        background: rgb(0,0,0,.3);
+        -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+        -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+        box-shadow: 0 0 10px rgba(0,0,0,.3);
+        margin: 16px auto;
+        max-width: 1300px;
+        padding: 2.25%; /* 18px / 800px */
+        width: 98%;
+      }
+      
+      .required input:after { content:"*"; }
+      
+      img {
+        border-radius: 20%;
+      }
+    </style>
+      
     <title>WeAreThePeople</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,8 +34,7 @@
   </head>
   <% src = "https://images.squarespace-cdn.com/content/v1/5d07cde0701969000168c986/1575307091704-9MEDG2Z2MTXRM9GM8KRG/ke17ZwdGBToddI8pDm48kAp4_xqv4a2og9bVWiVgxB4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc36OP64Qzykw3xajK5O2gv02XNZsRoCk0FtuYNZkYE8g11qEFPfkUhy90RPR0Z1hA/Screenshot+2019-12-02+at+6.18.02+PM.png?format=1500w"%>
   <body>  
-  <%# <img src="<%= src %>" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt=""> %>
-
+  
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" style="color: rgba(51, 214, 100, 0.9);">
       <a class="navbar-brand" href="#">WAP</a>
       <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"

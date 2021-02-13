@@ -1,17 +1,17 @@
 <h1>Make A Donation.</h1>
 
-    <form action="/donations" method="post">
-      <div class="form-group" style="width: 500px;position: relative;left: 280px">
+<form action="/donations" method="post">
+  <div class="form-group" style="width: 500px;position: relative;left: 280px">
 
-        <% Donation::PRESET_AMOUNTS.each do |amount| %>
-          <p><input type="radio" id="<%= amount %>" name="preset" value="<%= amount %>"> $<%= amount%></p>
-        <% end %>
+    <% Donation::PRESET_AMOUNTS.each do |amount| %>
+      <p><input type="radio" id="<%= amount %>" name="preset" value="<%= amount %>"> $<%= amount%></p>
+    <% end %>
 
 
-        <label for="name">Or Enter Different Amount In Dollars</label><br>
-        <input type="text" name="different" id="name" class="form-control" placeholder="Enter Donation Amount In Dollars" aria-describedby="helpId"><br>
-        <p style="color:red;">Amount <%= @donation&.errors&.[](:amount)&.[](0) %></p>
-        <button type="submit" class="btn btn-primary"><i class="fas fa-donate">Donate</i></button>
-        
-      </div>
-    </form>
+    <label for="name">Or Enter Different Amount In Dollars</label><br>
+    <input type="text" name="different" id="name" class="form-control" placeholder="Enter Donation Amount In Dollars" aria-describedby="helpId"><br>
+    <p style="color:red;">Amount <%= @donation&.errors&.[](:amount)&.[](0) %></p>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-donate">Donate</i></button>
+    
+  </div>
+</form>
