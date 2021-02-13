@@ -24,8 +24,17 @@ class CausesController < ApplicationController
     erb :"/causes/edit"
   end
 
-  patch "/causes/:id" do
-    redirect "/causes/:id"
+  patch "/causes/:slug" do
+    @cause = Cause.find_by_slug params[:slug]
+    @cause.update params[:cause]
+    if @cause.valid? 
+      flash[:message] = "The Cause Was Updated Successfully."
+      redirect "/causes/#{ @cause.slug }"
+    else
+      flash[:errors] =  @cause.errors
+      # binding.pry
+      redirect to "/causes/#{ @cause.slug }/edit"
+    end
   end
 
   delete "/causes/:id/delete" do
