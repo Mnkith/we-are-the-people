@@ -1,1 +1,19 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit <%= @cause.name %> Cause.</h1>
+
+    <form action="/causes/<%= @cause&.slug%>" method="post">
+    
+      <div class="form-group" style="width: 500px;position: relative;left: 280px">
+        <input type="hidden" name="_method" value="patch">
+
+        <label for="name">Name <span style="color:red;"><%= flash&.[](:errors)&.[](:name)&.[](0) %></span></label><br>
+        <input type="text" name="cause[name]" id="name" class="form-control" value="<%= @cause&.name%>" aria-describedby="helpId"><br>
+
+        <label for="description">Description <span style="color:red;"><%= flash&.[](:errors)&.[](:description)&.[](0) %></span></label><br>
+        <input type="description" name="cause[description]" id="description" class="form-control" value="<%= @cause&.description%>" aria-describedby="helpId"><br>
+
+        <label for="gaol">gaol <span style="color:red;"><%= flash&.[](:errors)&.[](:gaol)&.[](0) %></span></label><br>
+        <input type="text" name="cause[gaol]" id="gaol" class="form-control" value="<%= @cause&.gaol%>" aria-describedby="helpId"><br>
+        
+        <button type="submit" class="btn btn-primary">Update Account</button>
+      </div>
+    </form>

@@ -20,6 +20,7 @@ class CausesController < ApplicationController
   end
   
   get "/causes/:slug/edit" do
+    @cause = Cause.find_by_slug params[:slug]
     erb :"/causes/edit"
   end
 

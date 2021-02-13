@@ -11,6 +11,7 @@ class AdvocatesController < ApplicationController
   post "/advocates" do
     # flash.clear
     # session[:errors]&.clear
+    params[:advocate][:email].downcase!
     advocate = Advocate.create params[:advocate]
     if advocate.valid?
       session[:user_id] = advocate.id
@@ -24,7 +25,7 @@ class AdvocatesController < ApplicationController
   end
  
   post '/login' do
-    advocate = Advocate.find_by email: params[:email]
+    advocate = Advocate.find_by email: params[:email].downcase
     if advocate && advocate.authenticate(params[:password])
       # binding.pry
       session[:user_id] = advocate.id
