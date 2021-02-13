@@ -20,7 +20,9 @@ class DonationsController < ApplicationController
     
     if @donation.valid?
       @donation.advocate = @advocate  
-      @donation.cause = Cause.find session[:cause_id]
+      cause = Cause.find session[:cause_id]
+      cause.current += @donation.amount
+      @donation.cause = cause
       @donation.save
       redirect to "/donations/#{@donation.id}"
       # binding.pry

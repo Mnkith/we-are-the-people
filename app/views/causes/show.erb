@@ -6,9 +6,11 @@
 
 
 
-<h1><%= @cause.name %></h1>
+<h1><%= @cause.name %>; Goal: <%= @cause.goal %>, Current: <%= @cause.current %>, To Go: <%= @cause.goal - @cause.current %></h1>
 
 <div style="background-color: lightblue;hight:100px;width:800px">
+
+  
 
   <img src="<%= (@cause&.image_link&.include?('http') ? @cause.image_link : ('../' + @cause&.image_link)) if @cause&.image_link%>" alt="<%= @cause.name %>" width="120" height="130" style="vertical-align:middle;float:left;margin:0px 50px" >
 
@@ -26,7 +28,7 @@
       <button type="submit" class="btn btn-primary">Delete This Cause</button>
     </form>
     <% elsif  current_user.causes.include?(@cause)%>
-      <p>You've Donated To This Cause Previously</p>
+      <h5>You've Donated To This Cause Previously</h5>
       <form action="/donations/new" method='get'>
         <button type="submit" class="btn btn-primary">Donate Again</button>
       </form>
@@ -39,5 +41,19 @@
     <form action="/advocates/registration" method='get'>
       Please <button type="submit" class="btn btn-primary">Login/Sign Up</button> To Be Able To Support This Cause
     </form>
-<% end %>            
+<% end %>  
+  <h4>Supporters
+
+<% if @cause.donations.empty? %>
+  <h5>Currently You Have No Donations To List</h5>
+<% else %>
+  <% @cause.donations.each do |donation|%>
+    <p><i class="fa fa-list" aria-hidden="true"> A Donation Of <%= donation.amount %>$ Was Made On <%= donation.created_at%> 
+    <!--To Support <%=  Cause.find_by(id: donation.cause_id)&.name %> Cause -->
+    
+    </i></p>
+  <% end %>
+<% end %>
+</h4>
+      
 </div>
