@@ -1,1 +1,14 @@
-<h1>This is the causes index page.</h1>
+<h2>Causes To Support</h2>
+
+<div class="grid-container">
+<% %>
+  <% Cause.all.each do |cause| %>
+    <div class="grid-item wrapper" >
+      <form action='/causes/<%= cause.slug %>' method='get'>
+          <img src="<%= cause.image_link %>" alt="<%= cause.name %>" width="120" height="120" style="float:left;margin:0px 50px" >
+          <h3><%= cause.name %></h3>
+          <button type="submit" class="btn btn-primary">More Details</button>
+      <form>
+    </div>
+  <% end %>
+</div>

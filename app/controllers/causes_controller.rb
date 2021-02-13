@@ -46,13 +46,14 @@ class CausesController < ApplicationController
       redirect "/causes/#{ cause.slug }"
     else
       flash[:errors] =  cause.errors
-      # binding.pry
       #call original object to avoid blank entry route missdirect like -/causes//edit, delete rquired from edit view to see effect
       redirect to "/causes/#{ Cause.find_by_slug(params[:slug]).slug }/edit"
     end
   end
-
-  delete "/causes/:slug/delete" do
+  
+  delete "/causes/:slug" do
+    Cause.find_by_slug(params[:slug]).delete
+    # binding.pry
     redirect "/causes"
   end
 end

@@ -75,7 +75,7 @@ class AdvocatesController < ApplicationController
     end
   end
 
-  delete "/advocates/:id/delete" do
+  delete "/advocates/:slug" do
     redirect "/advocates"
   end
 end

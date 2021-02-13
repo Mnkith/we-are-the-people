@@ -28,7 +28,8 @@
 <% else %>
   <% @advocate.donations.each do |donation|%>
     <p><i class="fa fa-list" aria-hidden="true">On <%= donation.created_at%> You Made A Donation Of <%= donation.amount %>$ 
-    To Support <%=  Cause.find(donation.cause_id).name %> Cause 
+    <!--To Support <%=  Cause.find_by(id: donation.cause_id)&.name %> Cause -->
+    
     </i></p>
   <% end %>
 <% end %>
