@@ -27,6 +27,9 @@
       <input id="hidden" type="hidden" name="_method" value="delete">
       <button type="submit" class="btn btn-primary">Delete This Cause</button>
     </form>
+    <% elsif  @cause.met%>
+      <h5>The Goal For This Cause Has Been Met. Thanks To All Of You Who Supported This Cause.</h5>
+
     <% elsif  current_user.causes.include?(@cause)%>
       <h5>You've Donated To This Cause Previously</h5>
       <form action="/donations/new" method='get'>
