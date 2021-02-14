@@ -41,11 +41,11 @@
     <form action="/advocates/registration" method='get'>
       Please <button type="submit" class="btn btn-primary">Login/Sign Up</button> To Be Able To Support This Cause
     </form>
-<% end %>  
+<% end %><br><br>  
   <h4>Supporters
 
-<% if @cause.donations.empty? %>
-  <h5>Currently You Have No Donations To List</h5>
+<br><% if @cause.donations.empty? %>
+  <h5>This Cause Have No Supporters Yet!</h5>
 <% else %>
   <% @cause.donations.each do |donation|%>
     <p><i class="fa fa-list" aria-hidden="true"> A Donation Of <%= donation.amount %>$ Was Made On <%= donation.created_at%> 
