@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :home
+    erb :'/causes/index'
   end
 
   helpers do
