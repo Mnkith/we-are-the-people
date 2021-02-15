@@ -19,7 +19,7 @@
   <% session[:cause_id] = @cause.id %>
 
 <% if current_user %>
-  <% if current_user.name == 'admin'%>
+  <% if current_user.admin?%>
     <form action="/causes/<%= @cause.slug %>/edit" method='get'>
       <button type="submit" class="btn btn-primary">Edit This Cause</button>
     </form>

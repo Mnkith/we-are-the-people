@@ -1,8 +1,5 @@
-<style>
-    .required input:after { content:"*"; }
-</style>
 <h1>Edit Your Account Credentials.</h1>
-
+  
     <form action="/advocates/<%= @advocate&.slug%>" method="post">
     
       <div class="form-group " style="required; width: 500px;position: relative;left: 280px">
@@ -15,11 +12,20 @@
         <input  type="email" name="advocate[email]" id="email" class="form-control" value="<%= @advocate&.email%>" aria-describedby="helpId" required ><br>
 
         <label for="password">Password <span style="color:red;"><%= flash&.[](:errors)&.[](:password)&.[](0) %></span></label><br>
-        <input type="text" name="advocate[password]" id="password" class="form-control" value="<%= @advocate&.password%>" aria-describedby="helpId" required><br>
+        <input type="password" name="advocate[password]" id="password" class="form-control" value="<%= @advocate&.password%>" aria-describedby="helpId" required><br>
 
         <label for="password_confirmation">Password Confirmation <span style="color:red;"><%= flash&.[](:errors)&.[](:password_confirmation)&.[](0) %></span></label><br>
-        <input type="text" name="advocate[password_confirmation]" value="<%= @advocate&.password%>"  id="password_confirmation" class="form-control" aria-describedby="helpId" required><br>
+        <input type="password" name="advocate[password_confirmation]" value="<%= @advocate&.password%>" id="password_confirmation" class="form-control" aria-describedby="helpId" required><br>
 
         <button type="submit" class="btn btn-primary">Update Account</button>
       </div>
     </form>
+
+    <form action="/advocates/<%= @advocate.slug %>" method='post' >
+      <input id="hidden" type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-primary">Delete This Account</button>
+    </form>
+
+
+    <script>
+

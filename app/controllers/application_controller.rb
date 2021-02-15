@@ -23,6 +23,10 @@ class ApplicationController < Sinatra::Base
         session[:user_id] = nil
       end
     end
-  end
 
+    def reset 
+      session.clear
+      current_user = nil
+    end
+  end
 end

@@ -76,6 +76,10 @@ class AdvocatesController < ApplicationController
   end
 
   delete "/advocates/:slug" do
-    redirect "/advocates"
+    Advocate.find_by_slug(params[:slug]).delete
+    reset
+    redirect "/causes"
   end
+
+  
 end
