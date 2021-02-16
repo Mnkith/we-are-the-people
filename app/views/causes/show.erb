@@ -8,7 +8,7 @@
 
 <h1><%= @cause.name %>; Goal: $<%= @cause.goal %>, Current: $<%= @cause.current %>, To Go: $<%= @cause.goal - @cause.current %></h1>
 
-<div style="background-color: lightblue;hight:100px;width:800px">
+<div style="background-color: lightblue;hight:100px;width:900px">
 
   
 
@@ -45,17 +45,16 @@
       Please <button type="submit" class="btn btn-primary">Login/Sign Up</button> To Be Able To Support This Cause
     </form>
 <% end %><br><br>  
-  <h4>Supporters
+  <h4>Supporters: 
 
 <br><% if @cause.donations.empty? %>
   <h5>This Cause Have No Supporters Yet!</h5>
 <% else %>
-  <% @cause.donations.each do |donation|%>
-    <p><i class="fa fa-list" aria-hidden="true"> A Donation Of <%= donation.amount %>$ Was Made On <%= donation.created_at%> 
-    <!--To Support <%=  Cause.find_by(id: donation.cause_id)&.name %> Cause -->
-    
-    </i></p>
-  <% end %>
+  <ol>
+    <% @cause.donations.each do |donation|%>
+      <li><i class="fa fa-list" aria-hidden="true"> A Donation Of <%= donation.amount %>$ Was Made On <%= donation.created_at%> By <%= donation.advocate_name%></i></li>
+    <% end %>
+  </ol>
 <% end %>
 </h4>
       
