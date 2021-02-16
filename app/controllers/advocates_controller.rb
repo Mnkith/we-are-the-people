@@ -63,13 +63,15 @@ class AdvocatesController < ApplicationController
 
   patch "/advocates/:slug" do
     @advocate = Advocate.find_by_slug params[:slug]
+    # @advocate.assign_attributes params[:advocate]
+    # @advocate.changed?
+    # binding.pry
     @advocate.update params[:advocate]
     if @advocate.valid? 
       flash[:message] = "Your Account Was Updated Successfully."
       redirect "/advocates/#{ @advocate.slug }"
     else
       flash[:errors] =  @advocate.errors
-      # binding.pry
       #call original object to avoid blank entry route missdirect like -/advocates//edit, delete rquired from edit view to see effect
       redirect to "/advocates/#{ Advocate.find_by_slug(params[:slug]).slug }/edit"
     end

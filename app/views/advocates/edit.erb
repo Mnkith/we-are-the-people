@@ -12,10 +12,10 @@
         <input  type="email" name="advocate[email]" id="email" class="form-control" value="<%= @advocate&.email%>" aria-describedby="helpId" required ><br>
 
         <label for="password">Password <span style="color:red;"><%= flash&.[](:errors)&.[](:password)&.[](0) %></span></label><br>
-        <input type="password" name="advocate[password]" id="password" class="form-control" value="<%= @advocate&.password%>" aria-describedby="helpId" required><br>
+        <input type="password" name="advocate[password]" id="password" class="form-control" value="<%= @advocate&.password%>" aria-describedby="helpId" ><br>
 
         <label for="password_confirmation">Password Confirmation <span style="color:red;"><%= flash&.[](:errors)&.[](:password_confirmation)&.[](0) %></span></label><br>
-        <input type="password" name="advocate[password_confirmation]" value="<%= @advocate&.password%>" id="password_confirmation" class="form-control" aria-describedby="helpId" required><br>
+        <input type="password" name="advocate[password_confirmation]" value="<%= @advocate&.password%>" id="password_confirmation" class="form-control" aria-describedby="helpId" ><br>
 
         <button type="submit" class="btn btn-primary">Update Account</button>
       </div>

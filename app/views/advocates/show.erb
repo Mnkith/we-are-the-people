@@ -27,7 +27,7 @@
   <h5>Currently You Have No Donations To List</h5>
 <% else %>
   <% @advocate.donations.each do |donation|%>
-    <p><i class="fa fa-list" aria-hidden="true">On <%= donation.created_at%> You Made A Donation Of <%= donation.amount %>$ 
+    <p><i class="fa fa-list" aria-hidden="true">On <%= donation&.created_at%> You Made A Donation Of <%= donation.amount %>$ 
     <!--To Support <%=  Cause.find_by(id: donation.cause_id)&.name %> Cause -->
     
     </i></p>
