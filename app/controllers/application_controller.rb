@@ -27,14 +27,8 @@ class ApplicationController < Sinatra::Base
 
     def time_of_day
       hour = Time.now.strftime("%H%M").to_i
-      case hour
-        when 0..1159
-          'Morning'
-        when 1200..1759
-          'Afternoon'
-        when 1800..2359
-          'Evening'
-      end
+      time_ranges = {0..1159 => 'Morning', 1200..1759 => 'Afternoon', 1800..2359 => 'Evening'}
+      time_ranges.detect{|range, _| range === hour}.last #detect will stop at first match
     end
   end
 end
