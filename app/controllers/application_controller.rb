@@ -1,8 +1,4 @@
-require './config/environment'
-
 class ApplicationController < Sinatra::Base
-  # register Sinatra::Twitter::Bootstrap::Assets
-
   configure do
     enable :sessions
     set :session_secret, ENV['SESSION_SECRET']
@@ -27,6 +23,18 @@ class ApplicationController < Sinatra::Base
     def reset 
       session.clear
       current_user = nil
+    end
+
+    def time_of_day
+      hour = Time.now.strftime("%H%M").to_i
+      case hour
+        when 0..1159
+          'Morning'
+        when 1200..1759
+          'Afternoon'
+        when 1800..2359
+          'Evening'
+      end
     end
   end
 end

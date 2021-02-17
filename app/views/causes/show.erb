@@ -52,7 +52,7 @@
 <% else %>
   <ol>
     <% @cause.donations.each do |donation|%>
-      <li><i class="fa fa-list" aria-hidden="true"> A Donation Of <%= donation.amount %>$ Was Made On <%= donation.created_at%> By <%= donation.advocate_name%></i></li>
+      <li><i class="fa fa-list" aria-hidden="true"> A Donation Of $<%= donation.amount %> Was Made On <%= donation.created_at.strftime("%m/%d/%Y")%> By <%= donation.advocate_name%></i></li>
     <% end %>
   </ol>
 <% end %>

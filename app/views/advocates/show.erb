@@ -28,7 +28,7 @@
 <% else %>
   <ol>
     <% @advocate.donations.each do |donation|%>
-      <li><i class="fa fa-list" aria-hidden="true">On <%= donation&.created_at%> You Made A Donation Of <%= donation.amount %>$ In Support Of The <%= donation.cause_name%> Cause</i></li>
+      <li><i class="fa fa-list" aria-hidden="true">On <%= donation&.created_at%> You Made A Donation Of $<%= donation.amount %> In Support Of The <%= donation.cause_name%> Cause</i></li>
     <% end %>
   </ol>
 <% end %>
