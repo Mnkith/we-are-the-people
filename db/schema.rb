@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 2021_02_12_235512) do
 
   create_table "donations", force: :cascade do |t|
     t.integer "amount"
-    t.integer "advocate_id"
-    t.integer "cause_id"
+    t.string "advocate_name"
+    t.string "cause_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
