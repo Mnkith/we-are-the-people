@@ -6,7 +6,7 @@ class Cause < ActiveRecord::Base
   validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
 
   before_save :check_met
-
+  
   private 
 
     def check_met

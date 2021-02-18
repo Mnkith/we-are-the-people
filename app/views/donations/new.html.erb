@@ -10,7 +10,7 @@
 
     <label for="name">Or Enter Different Amount In Dollars</label><br>
     <input type="text" name="different" id="name" class="form-control" placeholder="Enter Donation Amount In Dollars" aria-describedby="helpId"><br>
-    <p style="color:red;"> <%= @donation&.errors&.full_messages&.[](0) %></p>
+    <p style="color:red;"> <%= flash&.[](:errors)&.[](0) %></p>
     <button type="submit" class="btn btn-primary"><i class="fas fa-donate">Donate</i></button>
     
   </div>

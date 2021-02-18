@@ -1,16 +1,5 @@
 class DonationsController < ApplicationController
 
-  # GET: /donations
-  get "/donations" do
-    erb :"/donations/index.html"
-  end
-
-  
-  get "/donations/new" do
-    erb :"/donations/new.html"
-  end
-
-  # POST: /donations
   post "/donations" do
     advocate = current_user
     #prefer different amount over preset amount
@@ -20,23 +9,17 @@ class DonationsController < ApplicationController
       cause = Cause.find session[:cause_id]
       donation.cause = cause
       cause.current += donation.amount
-      # if cause.current >= cause.goal 
-      #   cause.met = true
-      #   cause.current = cause.goal 
-      # end
-      # donation.advocate_name = advocate.name
-      # donation.cause_name = cause.name
-      # binding.pry
-      # cause.donations << donation
       cause.save
-      # advocate.donations << donation
-      # advocate.save
       donation.save
-
       redirect to "/donations/#{donation.id}"
     else
-       erb :"/donations/new.html"
+      flash[:errors] = donation.errors.full_messages
+      redirect to "/donations/new"
     end
+  end
+  
+  get "/donations/new" do
+    erb :"/donations/new.html"
   end
 
   get "/donations/:id" do
