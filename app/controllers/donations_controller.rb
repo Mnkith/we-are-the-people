@@ -27,9 +27,13 @@ class DonationsController < ApplicationController
       # @donation.advocate_name = @advocate.name
       # @donation.cause_name = cause.name
       # binding.pry
-      cause.save
       @donation.cause = cause
+      # cause.donations << @donation
+      # cause.save
+      # @advocate.donations << @donation
+      # @advocate.save
       @donation.save
+
       redirect to "/donations/#{@donation.id}"
     else
        erb :"/donations/new.html"
@@ -40,20 +44,5 @@ class DonationsController < ApplicationController
   get "/donations/:id" do
     @donation = Donation.find params[:id]
     erb :"/donations/show.html"
-  end
-
-  # GET: /donations/5/edit
-  get "/donations/:id/edit" do
-    erb :"/donations/edit.html"
-  end
-
-  # PATCH: /donations/5
-  patch "/donations/:id" do
-    redirect "/donations/:id"
-  end
-
-  # DELETE: /donations/5/delete
-  delete "/donations/:id/delete" do
-    redirect "/donations"
   end
 end

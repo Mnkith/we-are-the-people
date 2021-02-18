@@ -5,6 +5,6 @@ class Cause < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
   validates :goal, presence: true, numericality: { only_integer: true, greater_than: 0}
 
-  has_many :donations, foreign_key: "cause_name"
+  has_many :donations, primary_key: "name", foreign_key: "cause_name"
   has_many :advocates, through: :donations
 end

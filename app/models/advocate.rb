@@ -11,7 +11,7 @@ class Advocate < ActiveRecord::Base
 
   has_secure_password
 
-  has_many :donations, foreign_key: "advocate_name"
+  has_many :donations, primary_key: "name", foreign_key: "advocate_name"
   has_many :causes, through: :donations
 
   def admin?
