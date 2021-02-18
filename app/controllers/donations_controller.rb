@@ -24,8 +24,8 @@ class DonationsController < ApplicationController
         cause.met = true
         cause.current = cause.goal 
       end
-      @donation.advocate_name = @advocate.name
-      @donation.cause_name = cause.name
+      # @donation.advocate_name = @advocate.name
+      # @donation.cause_name = cause.name
       # binding.pry
       cause.save
       @donation.cause = cause
