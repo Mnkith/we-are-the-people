@@ -8,4 +8,8 @@ class Donation < ActiveRecord::Base
   belongs_to :cause, primary_key: "name", foreign_key: "cause_name"
 
   PRESET_AMOUNTS = [1, 3, 5, 7, 10]
+
+  def date_created
+    self.created_at.strftime("%m/%d/%Y")
+  end
 end
