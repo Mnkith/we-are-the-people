@@ -9,8 +9,8 @@ class DonationsController < ApplicationController
       cause = Cause.find session[:cause_id]
       donation.cause = cause
       cause.current += donation.amount
-      cause.save
-      donation.save
+      cause.save #calling save is required in this case to trigger before_save callbacks
+      donation.save #this will not trigger cause's before_save callbacks, wierd!!!
       redirect to "/donations/#{donation.id}"
     else
       flash[:errors] = donation.errors.full_messages

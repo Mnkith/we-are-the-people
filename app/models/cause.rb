@@ -7,8 +7,10 @@ class Cause < ActiveRecord::Base
 
   before_save :check_met
   
+  has_many :donations, primary_key: "name", foreign_key: "cause_name"
+  has_many :advocates, through: :donations
+  
   private 
-
     def check_met
       if self.current >= self.goal 
         self.met = true
@@ -16,8 +18,4 @@ class Cause < ActiveRecord::Base
       end
     end
 
-
-
-  has_many :donations, primary_key: "name", foreign_key: "cause_name"
-  has_many :advocates, through: :donations
 end

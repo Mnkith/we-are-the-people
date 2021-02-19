@@ -22,6 +22,7 @@ class AdvocatesController < ApplicationController
  
   post '/login' do
     advocate = Advocate.find_by email: params[:email].downcase
+
     if advocate && advocate.authenticate(params[:password])
       session[:user_id] = advocate.id
       redirect to "/advocates/#{ advocate.slug }"
@@ -47,6 +48,7 @@ class AdvocatesController < ApplicationController
 
   get "/advocates/:slug" do
     @advocate = Advocate.find_by_slug params[:slug]
+    # binding.pry
     if @advocate && @advocate.id == session[:user_id]
       erb :"/advocates/show"
     else
@@ -56,14 +58,16 @@ class AdvocatesController < ApplicationController
   end
 
   patch "/advocates/:slug" do
-    @advocate = Advocate.find_by_slug params[:slug]
-    @advocate.update params[:advocate]
-    if @advocate.valid? 
+    advocate = Advocate.find_by_slug params[:slug]
+    advocate.update params[:advocate]
+    if advocate.valid? 
       flash[:message] = "Your Account Was Updated Successfully."
-      redirect "/advocates/#{ @advocate.slug }"
+      redirect "/advocates/#{ advocate.slug }"
     else
-      flash[:errors] =  @advocate.errors
+      flash[:errors] =  advocate.errors
+      binding.pry
       redirect to "/advocates/#{ Advocate.find_by_slug(params[:slug]).slug }/edit"
+
     end
   end
 
