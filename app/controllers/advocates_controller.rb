@@ -57,10 +57,10 @@ class AdvocatesController < ApplicationController
     end
   end
 
-  patch "/advocates/:slug" do
+  patch "/advocates/:slug" do   
     advocate = Advocate.find_by_slug params[:slug]
     advocate.update params[:advocate]
-    if advocate.valid? 
+    if advocate.valid?   
       flash[:message] = "Your Account Was Updated Successfully."
       redirect "/advocates/#{ advocate.slug }"
     else
