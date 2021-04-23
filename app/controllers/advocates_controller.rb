@@ -56,7 +56,7 @@ class AdvocatesController < ApplicationController
       erb :"/advocates/registration"
     end
   end
-
+cccc
   patch "/advocates/:slug" do   
     advocate = Advocate.find_by_slug params[:slug]
     advocate.update params[:advocate]
